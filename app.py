@@ -1,15 +1,13 @@
-# ===============================
-# واجهة Streamlit التفاعلية
+# Streamlit 
 # ===============================
 
 st.set_page_config(page_title="Diabetes Prediction", page_icon="🩺", layout="centered")
 
-# قراءة صورة الخلفية وتحويلها إلى base64
+# base64 تحويل الخلفية ل 
 with open("back.png", "rb") as f:
     image_data = f.read()
 background_image = base64.b64encode(image_data).decode()
 
-# تطبيق خلفية كاملة للصفحة مع بعض تحسينات النصوص والأزرار
 st.markdown(f"""
     <style>
     .stApp {{
@@ -50,7 +48,6 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# إعداد الخلفية والصياغة
 st.markdown(f"""
     <style>
     .stApp {{
@@ -90,7 +87,7 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# استخدم markdown لعرض العنوان والنص بخلفية
+# markdown لعرض العنوان والنص بخلفية
 st.markdown('<div class="custom-title">🩺 Welcome to the Diabetes Prediction App</div>', unsafe_allow_html=True)
 st.markdown('<div class="custom-subtitle">Please enter your health information below to predict the risk of diabetes.</div>', unsafe_allow_html=True)
 
