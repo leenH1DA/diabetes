@@ -17,6 +17,19 @@ def load_and_train_model():
 
     selected_features = ['GenHlth', 'PhysHlth', 'Income', 'MentHlth', 'DiffWalk', 'BMI', 'HighBP']
 
+# معالجة القيم الشاذة باستخدام IQR
+def remove_outliers_iqr(data, features):
+for feature in features:
+Q1 = data[feature].quantile(0.25)
+Q3 = data[feature].quantile(0.75)
+IQR = Q3 - Q1
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+data = data[(data[feature] >= lower_bound) & (data[feature] <= upper_bound)]
+return data
+
+
+
     df["Diabetes_binary"] = df["Diabetes_012"].replace({1:1, 2:1})
 
     X = df[selected_features]
